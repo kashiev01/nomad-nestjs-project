@@ -12,4 +12,8 @@ export class UsersService extends CrudService<UserDocument> {
   async create(createUserDto) {
     return await this.userRepository.create(createUserDto);
   }
+
+  async findUser(createUserDto) {
+    return await this.userRepository.findOne(createUserDto)
+  }
 }
