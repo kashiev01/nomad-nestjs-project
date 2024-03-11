@@ -7,15 +7,16 @@ import { Strategy } from 'passport-local';
 export class LocalStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly authService: AuthService) {
     super({
-      usernameField: 'login',
+      usernameField: 'email',
     });
   }
 
-  async validate(login: string, password: string): Promise<any> {
-    const user = await this.authService.validateUser(login, password);
+  async validate(email: string, password: string): Promise<any> {
+    const user = await this.authService.validateUser(email, password);
     if (!user) {
       throw new UnauthorizedException('You are not registered', 'Unauthorized');
     }
-    return user;
+    const asd = user;
+    return asd;
   }
 }
