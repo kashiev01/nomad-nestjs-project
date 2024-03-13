@@ -24,10 +24,4 @@ export class AuthController {
     return this.authService.login(userData, req.user);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @ApiBearerAuth()
-  @Get('all')
-  async getAllUsers() {
-    return await this.authService.findAllUsers();
-  }
 }
